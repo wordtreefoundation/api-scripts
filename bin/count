@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+(1..30).each do |i|
+  puts i.to_s
+  sleep 1
+end
