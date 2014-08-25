@@ -1,7 +1,7 @@
 require 'stalker'
 require 'open3'
-require_relative 'rethinkdb_job'
-require_relative 'config'
+require 'rethinkdb_job'
+require_relative '../env'
 
 include Stalker
 
@@ -41,14 +41,12 @@ end
 $stdout.sync = true
 $stderr.sync = true
 
-rjob = RethinkDBJob.new(
-  CONFIG[:host], CONFIG[:port],
-  CONFIG[:db], CONFIG[:logdir])
+rjob = RethinkDBJob.new(CONFIG)
 
 require 'pty'
 
 api_job(rjob) do |log, args|
-  bin = File.join(File.dirname(__FILE__), "bin")
+  bin = File.join(File.dirname(__FILE__), "..", "scripts")
   env = (args["env"] || {}).merge \
     "RDB_HOST" => CONFIG[:host].to_s,
     "RDB_PORT" => CONFIG[:port].to_s,

@@ -1,7 +1,25 @@
+GIT
+  remote: git://github.com/wordtreefoundation/wordtree-ruby.git
+  revision: 618cd8504a3263c0e300d39d4317e855b6fe4e22
+  specs:
+    wordtree (0.1.1)
+      archivist-client (>= 0.1.7)
+      preamble (>= 0.0.3)
+      rethinkdb (~> 1.13.0)
+      retriable
+      simhash (= 0.2.5)
+      virtus
+
+PATH
+  remote: ../../rethinkdb_job
+  specs:
+    rethinkdb_job (0.1.1)
+      rethinkdb (~> 1.13.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (4.1.4)
+    activesupport (4.1.5)
       i18n (~> 0.6, >= 0.6.9)
       json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
@@ -45,7 +63,7 @@ GEM
       lumberjack (~> 1.0)
       pry (>= 0.9.12)
       thor (>= 0.18.1)
-    guard-rspec (4.2.10)
+    guard-rspec (4.3.1)
       guard (~> 2.1)
       rspec (>= 2.14, < 4.0)
     i18n (0.6.11)
@@ -63,11 +81,11 @@ GEM
     minitest (5.4.0)
     multi_json (1.10.1)
     multipart-post (2.0.0)
-    nokogiri (1.6.3)
+    nokogiri (1.6.3.1)
       mini_portile (= 0.6.0)
     preamble (0.0.3)
       rspec
-    pry (0.10.0)
+    pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
@@ -80,10 +98,10 @@ GEM
     rb-fsevent (0.9.4)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
-    representable (1.8.5)
+    representable (2.0.3)
       multi_json
       nokogiri
-      uber
+      uber (~> 0.0.7)
     rethinkdb (1.13.0.1)
       json
     retriable (1.4.1)
@@ -91,14 +109,14 @@ GEM
       rspec-core (~> 3.0.0)
       rspec-expectations (~> 3.0.0)
       rspec-mocks (~> 3.0.0)
-    rspec-core (3.0.2)
+    rspec-core (3.0.4)
       rspec-support (~> 3.0.0)
-    rspec-expectations (3.0.2)
+    rspec-expectations (3.0.4)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.0.0)
-    rspec-mocks (3.0.2)
+    rspec-mocks (3.0.4)
       rspec-support (~> 3.0.0)
-    rspec-support (3.0.2)
+    rspec-support (3.0.4)
     simhash (0.2.5)
       activesupport
       unicode (>= 0.3.1)
@@ -114,26 +132,19 @@ GEM
     thread_safe (0.3.4)
     tilt (1.4.1)
     timers (1.1.0)
-    tzinfo (1.2.1)
+    tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    uber (0.0.7)
+    uber (0.0.8)
     unicode (0.4.4.1)
     unicorn (4.8.3)
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
-    virtus (1.0.2)
+    virtus (1.0.3)
       axiom-types (~> 0.1)
       coercible (~> 1.0)
-      descendants_tracker (~> 0.0.3)
-      equalizer (~> 0.0.9)
-    wordtree (0.1.1)
-      archivist-client (>= 0.1.7)
-      preamble (>= 0.0.3)
-      rethinkdb (~> 1.13.0)
-      retriable
-      simhash (= 0.2.5)
-      virtus
+      descendants_tracker (~> 0.0, >= 0.0.3)
+      equalizer (~> 0.0, >= 0.0.9)
 
 PLATFORMS
   ruby
@@ -144,8 +155,9 @@ DEPENDENCIES
   guard-rspec
   rack-test
   rethinkdb
+  rethinkdb_job!
   rspec
   sinatra
   stalker
   unicorn
-  wordtree (= 0.1.1)
+  wordtree!
