@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/wordtreefoundation/rethinkdb_job.git
+  revision: e52a7482aef2d517bc43fd25fbce032b23fdc78b
+  specs:
+    rethinkdb_job (0.1.1)
+      rethinkdb (~> 1.13.0)
+
+GIT
   remote: git://github.com/wordtreefoundation/wordtree-ruby.git
   revision: 618cd8504a3263c0e300d39d4317e855b6fe4e22
   specs:
@@ -9,12 +16,6 @@ GIT
       retriable
       simhash (= 0.2.5)
       virtus
-
-PATH
-  remote: ../../rethinkdb_job
-  specs:
-    rethinkdb_job (0.1.1)
-      rethinkdb (~> 1.13.0)
 
 GEM
   remote: https://rubygems.org/

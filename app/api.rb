@@ -14,12 +14,17 @@ end
 
 get '/ok' do
   job_id = enqueue_job("ok")
-  "<a href='/status/#{job_id}/live'>#{job_id}</a>"
+  "<a href='status/#{job_id}/live'>#{job_id}</a>"
 end
 
 get '/count' do
   job_id = enqueue_job("count")
-  "<a href='/status/#{job_id}/live'>#{job_id}</a>"
+  "<a href='status/#{job_id}/live'>#{job_id}</a>"
+end
+
+get '/disk2db' do
+  job_id = enqueue_job("disk2db")
+  "<a href='status/#{job_id}/live'>#{job_id}</a>"
 end
 
 get '/status/:job_id' do

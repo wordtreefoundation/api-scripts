@@ -1,5 +1,6 @@
 require 'stalker'
 require 'open3'
+require 'fileutils'
 require 'rethinkdb_job'
 require_relative '../env'
 
@@ -29,6 +30,7 @@ def api_job(rjob, type='exec', &block)
     logfile = rjob.logfile(job_id)
 
     # Do it!
+    FileUtils.mkdir_p(rjob.logdir)
     File.open(logfile, "a") do |log|
       record_time(rjob, job_id, log) do
         yield log, args

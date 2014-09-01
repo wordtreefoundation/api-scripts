@@ -1,11 +1,13 @@
 FROM dockerfile/ruby
 
-ADD app /app
-ADD run.sh /app/run.sh
-
+ADD app/Gemfile /app/Gemfile
+ADD app/Gemfile.lock /app/Gemfile.lock
 WORKDIR /app
 
 RUN bundle install
+
+ADD app /app
+ADD run.sh /app/run.sh
 
 EXPOSE 8080
 
@@ -13,9 +15,15 @@ EXPOSE 8080
 VOLUME ["/library"]
 ENV LIBRARY /library
 
-# We expect a "--link beanstalkd:beanstalkd" to point us to the Beanstalkd
-# container (i.e. via /etc/hosts)
-ENV BEANSTALKD beanstalkd
+# Make scripts' log dir available
+VOLUME ["/logs"]
+ENV LOGDIR /logs
+
+# We expect a "--link beanstalkd:beanstalkd" to point us to Beanstalkd
+ENV BEANSTALK_URL beanstalk://beanstalkd/
+
+# We expect a "--link rethinkdb:rethinkdb" to point us to RethinkDB
+ENV RDB_HOST rethinkdb
 
 # Register at chaNginx server
 ENV APP_PORT 8080
