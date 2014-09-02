@@ -15,7 +15,7 @@ db = WordTree::DB::Librarian.new(rdb)
 puts "Initializing Disk Library ('#{ENV['LIBRARY']}')"
 disk = WordTree::Disk::Librarian.new(ENV['LIBRARY'])
 
-puts "Environment: #{JSON.pretty_generate(ENV)}"
+puts "Environment: \n#{JSON.pretty_generate(ENV.to_hash)}"
 
 disk.each do |book|
   puts "Saving book '#{book.title}' (#{book.id}, #{book.year})"

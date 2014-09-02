@@ -12,6 +12,11 @@ def enqueue_job(cmd, env={})
   end
 end
 
+def bundle_exec(cmd)
+  cmd = File.join(File.dirname(__FILE__), "scripts", cmd) unless cmd.include?('/')
+  enqueue_job(["bundle", "exec", cmd])
+end
+
 get '/ok' do
   job_id = enqueue_job("ok")
   "<a href='status/#{job_id}/live'>#{job_id}</a>"
@@ -23,7 +28,7 @@ get '/count' do
 end
 
 get '/disk2db' do
-  job_id = enqueue_job("disk2db")
+  job_id = enqueue_job(["bundle", "exec", "disk2db"])
   "<a href='status/#{job_id}/live'>#{job_id}</a>"
 end
 
