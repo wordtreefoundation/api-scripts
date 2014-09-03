@@ -8,7 +8,7 @@ $rjob = RethinkDBJob.new(rdb_config)
 
 def enqueue_job(cmd, env={})
   $rjob.create.tap do |job_id|
-    Stalker.enqueue('exec', "job_id" => job_id, "cmd" => cmd, "env" => env)
+    Stalker.enqueue('exec', {"job_id" => job_id, "cmd" => cmd, "env" => env}, :ttr => 4_294_967_294)
   end
 end
 
@@ -28,7 +28,7 @@ get '/count' do
 end
 
 get '/disk2db' do
-  job_id = enqueue_job(["bundle", "exec", "disk2db"])
+  job_id = enqueue_job(["bundle", "exec", "disk2db"], "overwrite" => params[:overwrite])
   "<a href='status/#{job_id}/live'>#{job_id}</a>"
 end
 

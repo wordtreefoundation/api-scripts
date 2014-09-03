@@ -1,18 +1,18 @@
 GIT
   remote: git://github.com/wordtreefoundation/rethinkdb_job.git
-  revision: dcc13f3513550df80da92dd4e900fe29a9f6a606
+  revision: 5ba6c8a1561a8e5c1bfc5aa932b440ad8428e0e0
   specs:
-    rethinkdb_job (0.1.2)
-      rethinkdb (~> 1.13.0)
+    rethinkdb_job (0.2.0)
+      rethinkdb (~> 1.14.0)
 
 GIT
   remote: git://github.com/wordtreefoundation/wordtree-ruby.git
-  revision: 8516f174eb5e5aee678d048951e8797e44b947bb
+  revision: ce871143174c642f1e9a480b3d4d2d487d725bd8
   specs:
-    wordtree (0.1.2)
+    wordtree (0.2.0)
       archivist-client (>= 0.1.7)
       preamble (>= 0.0.3)
-      rethinkdb (~> 1.13.0)
+      rethinkdb (~> 1.14.0)
       retriable
       simhash (= 0.2.5)
       virtus
@@ -103,7 +103,7 @@ GEM
       multi_json
       nokogiri
       uber (~> 0.0.7)
-    rethinkdb (1.13.0.1)
+    rethinkdb (1.14.0.0)
       json
     retriable (1.4.1)
     rspec (3.0.0)
