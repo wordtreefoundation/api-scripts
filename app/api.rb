@@ -32,6 +32,11 @@ get '/disk2db' do
   "<a href='status/#{job_id}/live'>#{job_id}</a>"
 end
 
+get '/mkngrams' do
+  job_id = enqueue_job(["bundle", "exec", "mkngrams"])
+  "<a href='status/#{job_id}/live'>#{job_id}</a>"
+end
+
 get '/status/:job_id' do
   content_type :json
   job_id = params[:job_id]

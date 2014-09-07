@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+
+require 'wordtree'
+require 'json'
+
+puts "Initializing Disk Library ('#{ENV['LIBRARY']}')"
+$disk = WordTree::Disk::Librarian.new(ENV['LIBRARY'])
+
+puts "Environment: \n#{JSON.pretty_generate(ENV.to_hash)}"
+
+$disk.library.each do |path, book_id|
+  puts path
+  begin
+    book = $disk.find(book_id)
+    (1..4).each do |n|
+      puts " ** generating #{n}grams"
+      book.ngrams(n)
+    end
+    puts " ** saving with ngrams..."
+    $disk.save(book)
+  rescue StandardError => e
+    puts " ** unable to save: #{e}"
+  end
+end

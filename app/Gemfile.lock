@@ -7,9 +7,9 @@ GIT
 
 GIT
   remote: git://github.com/wordtreefoundation/wordtree-ruby.git
-  revision: ce871143174c642f1e9a480b3d4d2d487d725bd8
+  revision: 82f5b9c0fad188bd834d0ff81f40d5a2958db9ac
   specs:
-    wordtree (0.2.0)
+    wordtree (0.2.2)
       archivist-client (>= 0.1.7)
       preamble (>= 0.0.3)
       rethinkdb (~> 1.14.0)
@@ -106,18 +106,18 @@ GEM
     rethinkdb (1.14.0.0)
       json
     retriable (1.4.1)
-    rspec (3.0.0)
-      rspec-core (~> 3.0.0)
-      rspec-expectations (~> 3.0.0)
-      rspec-mocks (~> 3.0.0)
-    rspec-core (3.0.4)
-      rspec-support (~> 3.0.0)
-    rspec-expectations (3.0.4)
+    rspec (3.1.0)
+      rspec-core (~> 3.1.0)
+      rspec-expectations (~> 3.1.0)
+      rspec-mocks (~> 3.1.0)
+    rspec-core (3.1.1)
+      rspec-support (~> 3.1.0)
+    rspec-expectations (3.1.0)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.0.0)
-    rspec-mocks (3.0.4)
-      rspec-support (~> 3.0.0)
-    rspec-support (3.0.4)
+      rspec-support (~> 3.1.0)
+    rspec-mocks (3.1.0)
+      rspec-support (~> 3.1.0)
+    rspec-support (3.1.0)
     simhash (0.2.5)
       activesupport
       unicode (>= 0.3.1)

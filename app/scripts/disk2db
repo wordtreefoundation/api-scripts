@@ -6,30 +6,35 @@ require 'json'
 rdb = {
   :host => ENV['RDB_HOST'],
   :port => ENV['RDB_PORT'],
-  :db   => ENV['RDB_DB'],
+  :db   => ENV['RDB_DB'] || 'research',
 }
 
 puts "Connecting to RethinkDB... #{rdb.to_json}"
-db = WordTree::DB::Librarian.new(rdb)
+$db = WordTree::DB::Librarian.new(rdb)
 
 puts "Initializing Disk Library ('#{ENV['LIBRARY']}')"
-disk = WordTree::Disk::Librarian.new(ENV['LIBRARY'])
+$disk = WordTree::Disk::Librarian.new(ENV['LIBRARY'])
 
 puts "Environment: \n#{JSON.pretty_generate(ENV.to_hash)}"
 
-disk.each do |book|
-  puts "#{book.id} (#{book.year})..."
+def save_book(book_id)
+  book = $disk.find(book_id)
+  $db.save(book)
+end
+
+$disk.library.each do |path, book_id|
+  puts path
   begin
-    book_in_db = db.find(book.id)
+    book_in_db = $db.find(book_id)
     if book_in_db
       puts " ** book already in DB"
     end
     if ENV['overwrite']
       puts " ** saving (overwrite set)"
-      db.save(book)
+      save_book(book_id)
     elsif book_in_db.nil?
       puts " ** saving (not in DB yet)"
-      db.save(book)
+      save_book(book_id)
     else
       puts " ** skipping"
     end
