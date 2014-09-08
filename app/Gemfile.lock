@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: git://github.com/wordtreefoundation/wordtree-ruby.git
-  revision: 6a77d8cd32b707162f9216f4370b0cd133e8aa1d
+  revision: 1d82fc9d7b063ab98a2f3d4adb53ed2d88c1ef9e
   specs:
     wordtree (0.3.1)
       archivist-client (>= 0.1.7)
