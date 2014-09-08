@@ -17,7 +17,7 @@ $disk.library.each do |path, book_id|
       book.ngrams(n)
     end
     puts " ** saving with ngrams..."
-    $disk.save(book)
+    $disk.save_ngrams(book)
   rescue StandardError => e
     puts " ** unable to save: #{e}"
   end

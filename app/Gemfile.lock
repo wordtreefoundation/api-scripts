@@ -5,9 +5,8 @@ GIT
     rethinkdb_job (0.2.0)
       rethinkdb (~> 1.14.0)
 
-GIT
-  remote: git://github.com/wordtreefoundation/wordtree-ruby.git
-  revision: 1d82fc9d7b063ab98a2f3d4adb53ed2d88c1ef9e
+PATH
+  remote: ../../wordtree-ruby
   specs:
     wordtree (0.3.1)
       archivist-client (>= 0.1.7)

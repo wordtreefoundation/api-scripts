@@ -55,7 +55,9 @@ api_job(rjob) do |log, args|
     "RDB_DB"   => CONFIG[:db].to_s,
     "LIBRARY"  => CONFIG[:library].to_s,
     "LOGDIR"   => CONFIG[:logdir].to_s,
-    "PATH"     => "#{bin}:#{ENV["PATH"]}"
+    "PATH"     => "#{bin}:#{ENV["PATH"]}",
+    "LC_ALL"   => "en_US.UTF-8",
+    "LANG"     => "en_US.UTF-8"
   opts = {
     :unsetenv_others => true,
     :err => :out
